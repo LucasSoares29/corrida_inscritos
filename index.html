@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="latin-1">
+    <title>Corrida dos Inscritos 2024</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1><a href='index.html'>Corrida dos Inscritos 2024</a></h1>
+</header>
+
+<nav>
+    <ul>
+		<li>
+            <a href="https://forms.gle/5cwxBsYwLvnw7E3q9">Cadastro Corrida 1</a>
+        </li>
+		<li>
+            <a href="https://forms.gle/eadEbF2C4CFwoQac7">Cadastro Corrida 2</a>
+        </li>
+		<li>
+            <a href="https://forms.gle/qbydT4Dw9VzoghwF7">Lista de Espera</a>
+        </li>
+		<li>
+            <a href="https://forms.gle/amSyRX86KCF78ZWj6" target="_blank">Cadastro Corrida dos Membros</a>
+        </li>
+		<li>
+            <a href="https://bit.ly/Curso-Automobilismo-Virtual" target="_blank">Curso de automobilismo virtual</a>
+        </li>
+        <li>
+            <a href="#">Pontua&ccedil;&atilde;o</a>
+            <ul>
+                <li><a href="#" onclick="carregarPagina('index_corrida_inscritos.html')">Corrida dos Inscritos</a></li>
+                <li><a href="#" onclick="carregarPagina('index_corrida_membros.html')">Corrida dos Membros</a></li>
+                <li><a href="#" onclick="carregarPagina('index_gift_mensal.html')">Pontua&ccedil;&atilde;o Mensal</a></li>
+            </ul>
+        </li>
+    </ul>
+    <a href="ultima_corrida_inscritos.html">Veja a corrida dos Inscritos aqui</a>
+</nav>
+
+<section id="conteudo">
+    <!-- O conteúdo será carregado aqui -->
+</section>
+
+<script>
+    function carregarPagina(pagina) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                 var conteudo = this.responseText;
+
+				// Adiciona os estilos diretamente ao conteúdo
+				conteudo += '<style>' +
+							'    body {' +
+							'        margin: 0;' +
+							'        padding: 0;' +
+							'        overflow: hidden;' +
+							'		 height: 100%;' +
+							'    }' +
+							'    table {' +
+							'        border-collapse: collapse;' +
+							'        width: 100%;' +
+							'        height: 100vh;' +
+							'        overflow: auto;' +
+							'        border: none;' +
+							'        display: block;' +
+							'    }' +
+							'    th, td {' +
+							'        border: 1px solid #16506e;' +
+							'        padding: 8px;' +
+							'        text-align: center;' +
+							'        border: none;' +
+							'    }' +
+							'    th {' +
+							'        background-color: #16506e;' +
+							'        color: white;' +
+							'    }' +
+							'    tr:nth-child(odd) {' +
+							'        background-color: #f7f9fa;' +
+							'        color: black;' +
+							'    }' +
+							'    tr:nth-child(even) {' +
+							'        background-color: #16506e;' +
+							'        color: white;' +
+							'    }' +
+							'    #conteudo {' +
+							'        max-width: 100%;' +
+							'        max-height: 100vh;' +
+							'        overflow: auto;' +
+							'        padding: 10px;' +
+							'    }' +
+							'    iframe {' +
+							'        width: 100%;' +
+							'        height: 100%;' +
+							'        border: none;' +
+							'		 overflow: auto;' + 
+							'		 overflow-x: auto;' + 
+							'    }' +
+							'</style>';
+
+
+				document.getElementById("conteudo").innerHTML = conteudo;
+            }
+        };
+        xhttp.open("GET", pagina, true);
+		xhttp.setRequestHeader("Cache-Control", "no-cache"); // Adiciona o cabeçalho no-cache
+        xhttp.send();
+    }
+</script>
+
+</body>
+</html>
